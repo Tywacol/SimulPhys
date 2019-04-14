@@ -1,11 +1,13 @@
 # coding: utf-8
 import socket
 
-connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+serveur = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 if __name__ == '__main__':
-    connection.connect(("localhost", 5000))
+    serveur.connect(("localhost", 5000))
+    msg_rec = serveur.recv(1024)
     print("Bienvenue sur le programme de l'ascenseur\n")
+    print(msg_rec)
     fin_prog = False
     while not fin_prog:
         choix = raw_input("Appuyer sur (M)onter ou (D)escendre ou (Q)uit pour quitter\n")
@@ -19,3 +21,4 @@ if __name__ == '__main__':
             print("Commande invalide")
             continue
         fin_prog = True
+    serveur.close()
