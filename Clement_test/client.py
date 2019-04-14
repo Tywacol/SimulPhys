@@ -1,7 +1,10 @@
 # coding: utf-8
+import socket
 
+connection = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 if __name__ == '__main__':
+    connection.connect(("localhost", 5000))
     print("Bienvenue sur le programme de l'ascenseur\n")
     fin_prog = False
     while not fin_prog:
