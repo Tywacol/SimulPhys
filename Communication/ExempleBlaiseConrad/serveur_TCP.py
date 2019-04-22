@@ -69,15 +69,15 @@ class MainFenetre(Tk):
 		self.Valeur = StringVar()
 		self.Valeur.set(50)
 		
-		# Création d'un widget Scale
+		# Creation d'un widget Scale
 		echelle = Scale(self,from_=-100,to=100,resolution=10,orient=HORIZONTAL,
 			length=300,width=20,label="Offset",tickinterval=20,variable=self.Valeur,command=self.maj)
 		echelle.pack(padx=10,pady=10)
 		
-		# Création d'un widget Button (bouton +)
+		# Creation d'un widget Button (bouton +)
 		Button(self,text="+",command=self.plus).pack(padx=10,pady=10)
 		
-		# Création d'un widget Button (bouton -)
+		# Creation d'un widget Button (bouton -)
 		Button(self,text="-",command=self.moins).pack(padx=10,pady=10)
 
 		varServeur['val']=self.Valeur
