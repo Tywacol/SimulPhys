@@ -1,7 +1,7 @@
-from Tkinter import *
+from tkinter import *
 
-import tkFileDialog
-import tkMessageBox
+#import tkFileDialog
+#import tkMessageBox
 import threading
 import socket
 
@@ -19,18 +19,18 @@ class serveurTCP(threading.Thread) :
 		while data!="<STOP>" :
 			self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			self.sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-			print "avant bind"
+			print("avant bind")
 			self.sock.bind(('', self.port))
-			print "avant listen"
+			print("avant listen")
 			self.sock.listen(2)
-			print "avant accept"
+			print("avant accept")
 			conn, addr = self.sock.accept()
-			print 'Connection par',addr
+			print('Connection par',addr)
 			while True:
 				data = conn.recv(1024)
 				if not data: break
 				if data=="<STOP>" : break
-				print "received message:", data
+				print("received message:", data)
 				if '=' in data :
 					pos = data.find('=')
 					nomVar = data[:pos]
@@ -50,10 +50,10 @@ class serveurTCP(threading.Thread) :
 				#conn.sendall(self.var.get())
 			conn.close()
 			self.sock.close()
-		print "Serveur ferme"
+		print ("Serveur ferme")
 		
 	def halt(self):
-		print "--> halt"
+		print("--> halt")
 		s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		s.connect(("127.0.0.1", self.port))
 		s.sendall('<STOP>')
