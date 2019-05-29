@@ -11,28 +11,36 @@ func _ready():
 var movement = Vector3(-0.6, 0, 0)
 
 func move_doors(dir):
-	if $PorteGauche.translation.x > -1.8:
-		$PorteGauche.move_and_slide(dir)
-		$PorteDroite.move_and_slide(-dir)
+	if dir == 1 && $PorteGauche.translation.x > -1.8:
+		$PorteGauche.move_and_slide(movement)
+		$PorteDroite.move_and_slide(-movement)
+	elif dir == -1 && $PorteGauche.translation.x < -0.6:
+		print("closing")
+		$PorteGauche.move_and_slide(-movement)
+		$PorteDroite.move_and_slide(movement)
 	else:
+		print("over")
 		if etat == "closing":
 			etat = "close"
-		else:
+			print("Doors closed")
+		elif etat == "opening":
 			etat = "open"
+			print("Doors opened")
 
 
 func _physics_process(delta):
 	if etat == "opening":
-		move_doors(movement)
+		move_doors(1)
 	elif etat == "closing":
-		move_doors(-movement)
+		move_doors(-1)
 
 
 func open():
-	print("ouverture")
 	if etat == "close":
+		print("ouverture")
 		etat = "opening"
 
 func close():
 	if etat == "open":
+		print("fermeture")
 		etat = "closing"

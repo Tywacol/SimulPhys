@@ -60,8 +60,8 @@ func _input(event):
 			if obj.empty():
 				print("aucun bouton en vue")
 			else:
-				obj.collider.get_parent().activate()
-				print(str("etage ",obj.collider.get_parent().etage))
+				obj.collider.activate()
+				print(str("etage ",obj.collider.etage))
 
 
 func get_object_under_mouse():

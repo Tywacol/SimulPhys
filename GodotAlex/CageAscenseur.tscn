@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://CageAscenseur.gd" type="Script" id=1]
 [ext_resource path="res://Portes.gd" type="Script" id=2]
+[ext_resource path="res://Bouton.tscn" type="PackedScene" id=3]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -68,10 +69,19 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Metallic" ]
 
-[node name="Ascenseur" type="Spatial"]
+[sub_resource type="CubeMesh" id=4]
+
+custom_aabb = AABB( 0, 0, 0, 0, 0, 0 )
+size = Vector3( 0.04, 1, 0.5 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[node name="Ascenseur" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 destination = 0
+actuel = 0
 
 [node name="MurDroite" type="StaticBody" parent="." index="0"]
 
@@ -181,7 +191,43 @@ skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 _sections_unfolded = [ "material" ]
 
-[node name="MurFond" type="StaticBody" parent="." index="3"]
+[node name="Plafond" type="StaticBody" parent="." index="3"]
+
+editor/display_folded = true
+transform = Transform( 1.2, 0, 0, 0, 0.05, 0, 0, 0, 1.2, 0, 2.5, 0 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+friction = 1.0
+bounce = 0.0
+constant_linear_velocity = Vector3( 0, 0, 0 )
+constant_angular_velocity = Vector3( 0, 0, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Plafond" index="0"]
+
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Plafond" index="1"]
+
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 2 )
+skeleton = NodePath("..")
+material/0 = SubResource( 3 )
+_sections_unfolded = [ "material" ]
+
+[node name="MurFond" type="StaticBody" parent="." index="4"]
 
 editor/display_folded = true
 transform = Transform( -2.18557e-009, 0, 1.2, 0, 2.5, 0, -0.05, 0, -5.24537e-008, 0, 0, -1.2 )
@@ -217,7 +263,7 @@ skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 _sections_unfolded = [ "material" ]
 
-[node name="Portes" type="Spatial" parent="." index="4"]
+[node name="Portes" type="Spatial" parent="." index="5"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3 )
@@ -303,7 +349,7 @@ skeleton = NodePath("..")
 material/0 = SubResource( 3 )
 _sections_unfolded = [ "material" ]
 
-[node name="OmniLight" type="OmniLight" parent="." index="5"]
+[node name="OmniLight" type="OmniLight" parent="." index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
 layers = 1
@@ -325,5 +371,53 @@ omni_attenuation = 1.0
 omni_shadow_mode = 1
 omni_shadow_detail = 1
 _sections_unfolded = [ "Light", "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12918, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 4 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="Bouton" parent="MeshInstance" index="0" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, 0.2, 0.15 )
+etage = 4
+
+[node name="Bouton2" parent="MeshInstance" index="1" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, 0.2, -0.15 )
+etage = 5
+
+[node name="Bouton4" parent="MeshInstance" index="2" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, -0.05, 0.15 )
+etage = 2
+
+[node name="Bouton5" parent="MeshInstance" index="3" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, -0.3, 0.15 )
+etage = 0
+
+[node name="Bouton3" parent="MeshInstance" index="4" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, -0.05, -0.15 )
+etage = 3
+
+[node name="Bouton6" parent="MeshInstance" index="5" instance=ExtResource( 3 )]
+
+transform = Transform( -2.18557e-008, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-008, 0.015, -0.3, -0.15 )
+etage = 1
 
 

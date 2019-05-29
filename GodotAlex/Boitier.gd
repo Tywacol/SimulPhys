@@ -1,15 +1,14 @@
 extends Spatial
 
-export var etage = 3
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+export var etage = 0
 
 func _ready():
-	pass
+	$Bouton.etage = etage
 
-func activate():
-	var obj = null
-	for child in get_parent_spatial().get_children():
-		if child.get_name() == "Ascenseur":
-			obj = child
-			break
-	if obj:
-		obj.open()
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass

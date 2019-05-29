@@ -4,44 +4,47 @@ extends Spatial
 # var a = 2
 # var b = "textvar
 var movement = "stop"
-var speed = 0
+var speed = 5
 export var destination = 0
-var actuel = 0
+export var actuel = 0
 
 
 func _ready():
 	pass
 
 func _process(delta):
-	if movement == "haut":
-		move(10)
-	elif movement == "bas":
-		move(-10)
+	if $Portes.etat == "close":
+		if movement == "haut":
+			translate(Vector3(0, speed, 0)*delta)
+		elif movement == "bas":
+			translate(Vector3(0, -speed, 0)*delta)
 
 
 func update(dir, etage):
 	if etage == destination:
 		if movement == dir:
 			stop()
-		elif movement != "stop":
-			speed = speed/2
+			actuel = etage
 
 
 func call(etage):
 	if movement == "stop":
+		destination = etage
 		if etage > actuel:
 			movement = "haut"
+			close()
 		elif etage < actuel:
 			movement = "bas"
+			close()
 		else:
-			movement = "stop"
+			open()
 
 
 func stop():
 	movement = "stop"
+	open()
 
 func open():
-	print("appele")
 	$Portes.open()
 
 func close():
