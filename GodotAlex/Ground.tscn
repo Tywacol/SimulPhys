@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Ground.gd" type="Script" id=1]
-[ext_resource path="res://Boitier.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Body.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CageAscenseur.tscn" type="PackedScene" id=4]
-[ext_resource path="res://CapteurPresence.tscn" type="PackedScene" id=5]
+[ext_resource path="res://menu/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Boitier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Body.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CageAscenseur.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CapteurPresence.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PlaneShape" id=1]
 
@@ -55,65 +56,67 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 
-[node name="Boitier" parent="." index="1" instance=ExtResource( 2 )]
+[node name="pause" parent="Ground/MeshInstance" index="0" instance=ExtResource( 2 )]
+
+[node name="Boitier" parent="." index="1" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92253, 1.66724, 0.443908 )
 
-[node name="Boitier2" parent="." index="2" instance=ExtResource( 2 )]
+[node name="Boitier2" parent="." index="2" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92253, 7.66724, 0.430149 )
 etage = 1
 
-[node name="Boitier3" parent="." index="3" instance=ExtResource( 2 )]
+[node name="Boitier3" parent="." index="3" instance=ExtResource( 3 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92253, 13.6672, 0.430149 )
 etage = 2
 
-[node name="Body" parent="." index="4" instance=ExtResource( 3 )]
+[node name="Body" parent="." index="4" instance=ExtResource( 4 )]
 
-[node name="Ascenseur" parent="." index="5" instance=ExtResource( 4 )]
+[node name="Ascenseur" parent="." index="5" instance=ExtResource( 5 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.60401, -1.81829 )
 
-[node name="CapteurPresence" parent="." index="6" instance=ExtResource( 5 )]
+[node name="CapteurPresence" parent="." index="6" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 0.2, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 0.2, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 position = "bas"
 
-[node name="CapteurPresence2" parent="." index="7" instance=ExtResource( 5 )]
+[node name="CapteurPresence2" parent="." index="7" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 5, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 5, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 
-[node name="CapteurPresence3" parent="." index="8" instance=ExtResource( 5 )]
+[node name="CapteurPresence3" parent="." index="8" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 6.2, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 6.2, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 etage = 1
 position = "bas"
 
-[node name="CapteurPresence4" parent="." index="9" instance=ExtResource( 5 )]
+[node name="CapteurPresence4" parent="." index="9" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 11, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 11, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 etage = 1
 
-[node name="CapteurPresence5" parent="." index="10" instance=ExtResource( 5 )]
+[node name="CapteurPresence5" parent="." index="10" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 12.2, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 12.2, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 etage = 2
 position = "bas"
 
-[node name="CapteurPresence6" parent="." index="11" instance=ExtResource( 5 )]
+[node name="CapteurPresence6" parent="." index="11" instance=ExtResource( 6 )]
 
-transform = Transform( -4.37114e-008, 1, 0, -1, -4.37114e-008, 0, 0, 0, 1, -2.13526, 17, -0.932507 )
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -2.13526, 17, -0.932507 )
 _sections_unfolded = [ "Transform" ]
 distance = 1000
 etage = 2
