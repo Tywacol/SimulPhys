@@ -14,6 +14,7 @@ var menu = false
 
 
 func _ready():
+	$validateBeep.play()
 	pass
 
 func _physics_process(delta): 

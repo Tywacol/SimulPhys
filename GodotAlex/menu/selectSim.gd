@@ -8,6 +8,7 @@ func _ready():
 	$BackButton.connect("pressed",self,"backMenu")
 	$Ascensor.connect("mouse_entered",self,"bipMenu")
 	$BackButton.connect("mouse_entered",self,"bipMenu")
+	$validateBeep.play()
 	pass
 
 func ascensorSimLaunch():

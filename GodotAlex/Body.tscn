@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Body.gd" type="Script" id=1]
 [ext_resource path="res://menu/pause.tscn" type="PackedScene" id=2]
+[ext_resource path="res://menu/validateBeep.wav" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=1]
 
@@ -75,5 +76,14 @@ mesh = SubResource( 2 )
 skeleton = NodePath("..")
 material/0 = null
 _sections_unfolded = [ "Transform" ]
+
+[node name="validateBeep" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 3 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
