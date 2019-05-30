@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Robot_blip-Marianne_Gagnon-120342607.wav-4b1e1b5727df77b8db3d9010dbf3d437.sample"
+
+[deps]
+
+source_file="res://menu/Robot_blip-Marianne_Gagnon-120342607.wav"
+dest_files=[ "res://.import/Robot_blip-Marianne_Gagnon-120342607.wav-4b1e1b5727df77b8db3d9010dbf3d437.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
