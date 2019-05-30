@@ -1,32 +1,26 @@
 extends CanvasLayer
 
-var pauseLabel
-var reprendreButton
-var menuButton
-var leaveButton
-var background
+signal reprendre
 
 func _ready():
-	pauseLabel = get_node("pauseLabel")
-	reprendreButton = get_node("reprendreButton")
-	menuButton = get_node("menuButton")
-	leaveButton = get_node("leaveButton")
-	background = get_node("background")
 	hideMenu()
-	reprendreButton.connect("pressed",self,"hideMenu")
-	menuButton.connect("pressed",self,"buttonMenuGame")
-	leaveButton.connect("pressed",self,"buttonLeaveGame")
+	$reprendreButton.connect("pressed",self,"buttonReprendreGame")
+	$menuButton.connect("pressed",self,"buttonMenuGame")
+	$leaveButton.connect("pressed",self,"buttonLeaveGame")
 	pass
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_quit"):
-		if pauseLabel.is_visible():
+		if $pauseLabel.is_visible():
 			hideMenu()
 		else:
 			displayMenu()
 	pass
 
-
+func buttonReprendreGame():
+	emit_signal("reprendre")
+	hideMenu()
+	pass
 	
 func buttonMenuGame():
 	get_tree().change_scene("res://menu/menu.tscn")
@@ -38,19 +32,19 @@ func buttonLeaveGame():
 	
 func displayMenu():
 	Input.set_mouse_mode(0)
-	background.show()
-	pauseLabel.show()
-	reprendreButton.show()
-	menuButton.show()
-	leaveButton.show()
+	$reprendreButton.show()
+	$pauseLabel.show()
+	$menuButton.show()
+	$leaveButton.show()
+	$background.show()
 	pass
 	
 func hideMenu():
 	Input.set_mouse_mode(1)
-	background.hide()
-	pauseLabel.hide()
-	reprendreButton.hide()
-	menuButton.hide()
-	leaveButton.hide()
+	$reprendreButton.hide()
+	$pauseLabel.hide()
+	$menuButton.hide()
+	$leaveButton.hide()
+	$background.hide()
 	pass
 	

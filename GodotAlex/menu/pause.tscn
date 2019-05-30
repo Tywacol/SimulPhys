@@ -20,8 +20,9 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="pause" type="CanvasLayer" index="0"]
+[node name="pause" type="CanvasLayer"]
 
+editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0

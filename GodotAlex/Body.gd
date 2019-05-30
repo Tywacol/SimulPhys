@@ -18,11 +18,10 @@ func _ready():
 
 func _physics_process(delta): 
 	#reset the direction of the caracter
+	$pause.connect("reprendre",self,"menuOnOff")
 	if Input.is_action_just_pressed("ui_quit"):
-		if menu == false:
-			menu = true
-		else:
-			menu = false
+		menuOnOff()
+	
 	direction = Vector3()
 	
 	#get the rotation of the camera
@@ -52,23 +51,24 @@ func _physics_process(delta):
 
 
 func _input(event):
-	if menu == false:
-		if event is InputEventMouseMotion:
-			rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
-			
-			var change =-event.relative.y * mouse_sensitivity
-			if change + camera_angle < 90 and change + camera_angle > -90:
-				$Camera.rotate_x(deg2rad(change))
-				camera_angle += change
-	
-		if event is InputEventMouseButton:
-			if event.is_pressed():
-				var obj = get_object_under_mouse()
-				if obj.empty():
-					print("aucun bouton en vue")
-				else:
-					obj.collider.activate()
-					print(str("etage ",obj.collider.etage))
+	if menu == true:
+		return
+	if event is InputEventMouseMotion:
+		rotate_y(deg2rad(-event.relative.x * mouse_sensitivity))
+		
+		var change =-event.relative.y * mouse_sensitivity
+		if change + camera_angle < 90 and change + camera_angle > -90:
+			$Camera.rotate_x(deg2rad(change))
+			camera_angle += change
+
+	if event is InputEventMouseButton:
+		if event.is_pressed():
+			var obj = get_object_under_mouse()
+			if obj.empty():
+				print("aucun bouton en vue")
+			else:
+				obj.collider.activate()
+				print(str("etage ",obj.collider.etage))
 
 
 func get_object_under_mouse():
@@ -78,3 +78,10 @@ func get_object_under_mouse():
 	var space_state = get_world().direct_space_state
 	var selection = space_state.intersect_ray(ray_from, ray_to, [self], 2)
 	return selection
+
+func menuOnOff():
+	if menu == false:
+		menu = true
+	else:
+		menu = false
+	pass

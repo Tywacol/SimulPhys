@@ -12,10 +12,8 @@ func _ready():
 	var centered_pos = (screen_size - window_size) / 2
 	OS.set_window_position(centered_pos)
 	
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
 	set_process_input(true)
 
 func _process(delta):
