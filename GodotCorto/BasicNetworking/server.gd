@@ -1,7 +1,13 @@
 extends SceneTree
 
 func _init():
+  # code client
+  var socket_client = PacketPeerUDP.new()
+  socket_client.set_dest_address("127.0.0.1",6546)
+
+  # code server
   var done = false
+  
   
   var socket = PacketPeerUDP.new()
   if(socket.listen(4242,"127.0.0.1") != OK):
@@ -17,6 +23,9 @@ func _init():
         done = true
       else:
         print("Data received: " + data)
-  socket.close()        
+		socket.put_packet	(data.to_ascii())
+		
   print("Exiting application")    
   self.quit()
+ 
+
