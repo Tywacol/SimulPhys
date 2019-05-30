@@ -112,5 +112,6 @@ material/0 = null
 [node name="Bouton" parent="." index="1" instance=ExtResource( 2 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0983472 )
+etage = 0
 
 

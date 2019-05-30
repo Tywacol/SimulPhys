@@ -16,7 +16,7 @@ mid_height = 1.0
 radial_segments = 64
 rings = 8
 
-[node name="Body" type="KinematicBody" index="0"]
+[node name="Body" type="KinematicBody"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5 )
 input_ray_pickable = true

@@ -25,6 +25,7 @@ constant_linear_velocity = Vector3( 0, 0, 0 )
 constant_angular_velocity = Vector3( 0, 0, 0 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
+etage = 0
 
 [node name="CollisionShape" type="CollisionShape" parent="." index="0"]
 
@@ -33,7 +34,7 @@ disabled = false
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 
-transform = Transform( 0.306, 0, 0, 0, -2.62268e-008, -0.306, 0, 0.6, -1.33757e-008, 0, 0, 0 )
+transform = Transform( 0.306, 0, 0, 0, -2.62268e-08, -0.306, 0, 0.6, -1.33757e-08, 0, 0, 0 )
 layers = 1
 material_override = null
 cast_shadow = 1
