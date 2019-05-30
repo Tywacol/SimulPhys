@@ -1,20 +1,21 @@
 extends CanvasLayer
 
-var gameName
-var launchButton
-var leaveButton
+
 
 func _ready():
-	gameName = get_node("GameName")
-	launchButton = get_node("LaunchButton")
-	leaveButton = get_node("LeaveButton")
-	launchButton.connect("pressed",self,"buttonLaunchGame")
-	leaveButton.connect("pressed",self,"buttonLeaveGame")
+	$LaunchButton.connect("mouse_entered",self,"bipMenu")
+	$LeaveButton.connect("mouse_entered",self,"bipMenu")
+	$LaunchButton.connect("pressed",self,"buttonLaunchGame")
+	$LeaveButton.connect("pressed",self,"buttonLeaveGame")
+	pass
+
+func bipMenu():
+	$Bip.play()
 	pass
 
 func buttonLaunchGame():
-	gameName.hide()
-	launchButton.hide()
+	$GameName.hide()
+	$LaunchButton.hide()
 	get_tree().change_scene("res://menu/selectSim.tscn")
 	pass
 	

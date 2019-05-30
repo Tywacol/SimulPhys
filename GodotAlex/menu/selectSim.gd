@@ -1,16 +1,13 @@
 extends CanvasLayer
 
-var selectSim
-var AscensorButton
-var backButton
+
 
 
 func _ready():
-	selectSim = get_node("GameName")
-	backButton = get_node("BackButton")
-	AscensorButton = get_node("Ascensor")
-	AscensorButton.connect("pressed",self,"ascensorSimLaunch")
-	backButton.connect("pressed",self,"backMenu")
+	$Ascensor.connect("pressed",self,"ascensorSimLaunch")
+	$BackButton.connect("pressed",self,"backMenu")
+	$Ascensor.connect("mouse_entered",self,"bipMenu")
+	$BackButton.connect("mouse_entered",self,"bipMenu")
 	pass
 
 func ascensorSimLaunch():
@@ -19,4 +16,8 @@ func ascensorSimLaunch():
 	
 func backMenu():
 	get_tree().change_scene("res://menu/menu.tscn")
+	pass
+	
+func bipMenu():
+	$Bip.play()
 	pass

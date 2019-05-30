@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/pause.gd" type="Script" id=1]
 [ext_resource path="res://menu/index.png" type="Texture" id=2]
 [ext_resource path="res://menu/LemonMilk.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://menu/10676.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -22,7 +23,6 @@ _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="pause" type="CanvasLayer" index="0"]
 
-editor/display_folded = true
 layer = 1
 offset = Vector2( 0, 0 )
 rotation = 0.0
@@ -148,5 +148,14 @@ text = "Quitter"
 flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="Bip" type="AudioStreamPlayer" parent="." index="5"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 

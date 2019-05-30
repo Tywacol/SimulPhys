@@ -7,6 +7,13 @@ func _ready():
 	$reprendreButton.connect("pressed",self,"buttonReprendreGame")
 	$menuButton.connect("pressed",self,"buttonMenuGame")
 	$leaveButton.connect("pressed",self,"buttonLeaveGame")
+	$reprendreButton.connect("mouse_entered",self,"bipMenu")
+	$menuButton.connect("mouse_entered",self,"bipMenu")
+	$leaveButton.connect("mouse_entered",self,"bipMenu")
+	pass
+
+func bipMenu():
+	$Bip.play()
 	pass
 
 func _process(delta):
@@ -47,4 +54,4 @@ func hideMenu():
 	$leaveButton.hide()
 	$background.hide()
 	pass
-	
+

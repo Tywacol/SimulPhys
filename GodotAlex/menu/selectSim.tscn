@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://menu/selectSim.gd" type="Script" id=1]
 [ext_resource path="res://menu/Blue_node_full_image_2.jpg" type="Texture" id=2]
 [ext_resource path="res://menu/LemonMilk.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://menu/10676.wav" type="AudioStream" id=4]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 
 size = 20
 use_mipmaps = false
@@ -12,7 +13,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 
 size = 40
 use_mipmaps = false
@@ -52,7 +53,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 7
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.648438, 0.648438, 0.648438, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -83,7 +84,7 @@ mouse_filter = 0
 mouse_default_cursor_shape = 7
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
 custom_colors/font_color = Color( 0.648438, 0.648438, 0.648438, 1 )
 custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
@@ -113,11 +114,20 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Selectionner une simulation"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="Bip" type="AudioStreamPlayer" parent="." index="4"]
+
+stream = ExtResource( 4 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
 
 
