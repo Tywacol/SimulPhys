@@ -46,6 +46,8 @@ func _physics_process(delta):
 	velocity = velocity.linear_interpolate(target, FLY_ACCEL * delta)
 	
 	#move
+	if menu == true:
+		return
 	move_and_slide(velocity)
 
 
