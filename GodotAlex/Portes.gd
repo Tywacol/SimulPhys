@@ -14,7 +14,7 @@ func move_doors(dir):
 	if dir == 1 && $PorteGauche.translation.x > -1.8:
 		$PorteGauche.move_and_slide(movement)
 		$PorteDroite.move_and_slide(-movement)
-	elif dir == -1 && $PorteGauche.translation.x < -0.6:
+	elif dir == -1 && $PorteGauche.translation.x < -0.61:
 		print("closing")
 		$PorteGauche.move_and_slide(-movement)
 		$PorteDroite.move_and_slide(movement)

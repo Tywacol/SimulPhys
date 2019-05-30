@@ -11,8 +11,10 @@ func _ready():
 	$validateBeep.play()
 	pass
 
+
+
 func ascensorSimLaunch():
-	get_tree().change_scene("res://Ground.tscn")
+	get_tree().change_scene("res://menu/menu_connect.tscn")
 	pass
 	
 func backMenu():
@@ -22,3 +24,8 @@ func backMenu():
 func bipMenu():
 	$Bip.play()
 	pass
+	
+	
+	
+	
+	
