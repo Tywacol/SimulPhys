@@ -47,7 +47,7 @@ func displayMenu():
 	pass
 	
 func hideMenu():
-	Input.set_mouse_mode(1)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$reprendreButton.hide()
 	$pauseLabel.hide()
 	$menuButton.hide()
