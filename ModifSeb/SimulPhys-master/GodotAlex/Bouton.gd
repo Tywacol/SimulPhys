@@ -5,7 +5,7 @@ export var etage = 0
 func _ready():
 	pass
 
-func activate():
+sync func activate():
 	var obj = null
 	var parent = get_parent()
 	while parent != null && parent.get_name() != "MainScene":
@@ -16,4 +16,4 @@ func activate():
 				obj = child
 				break
 		if obj:
-			obj.call(etage)
+			obj.appel(etage)

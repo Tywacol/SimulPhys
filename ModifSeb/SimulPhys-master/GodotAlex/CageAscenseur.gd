@@ -20,14 +20,14 @@ func _process(delta):
 			translate(Vector3(0, -speed, 0)*delta)
 
 
-func update(dir, etage):
+sync func update(dir, etage):
 	if etage == destination:
 		if movement == dir:
 			stop()
 			actuel = etage
 
 
-func call(etage):
+sync func appel(etage):
 	if movement == "stop":
 		destination = etage
 		if etage > actuel:
@@ -40,12 +40,13 @@ func call(etage):
 			open()
 
 
-func stop():
+sync func stop():
 	movement = "stop"
 	open()
 
-func open():
+sync func open():
+	print("path open cageascencseur  : "+get_path())
 	$Portes.open()
 
-func close():
-	$Portes.close()
+sync func close():
+    $Portes.close()
