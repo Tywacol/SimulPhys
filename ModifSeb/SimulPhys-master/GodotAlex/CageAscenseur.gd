@@ -28,6 +28,7 @@ sync func update(dir, etage):
 
 
 sync func appel(etage):
+	print(self.get_path())
 	if movement == "stop":
 		destination = etage
 		if etage > actuel:

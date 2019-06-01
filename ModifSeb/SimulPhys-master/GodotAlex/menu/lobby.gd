@@ -1,7 +1,7 @@
 
 extends Control
 
-const DEFAULT_PORT = 8910 # some random number, pick your port properly
+const DEFAULT_PORT = 8911 # some random number, pick your port properly
 
 #### Network callbacks from SceneTree ####
 
@@ -64,6 +64,12 @@ func _set_status(text,isok):
 		get_node("panel/status_fail").set_text(text)
 
 func _on_host_pressed():
+	
+	var pong = load("res://Ground.tscn").instance()
+	pong.connect("game_finished",self,"_end_game",[],CONNECT_DEFERRED) # connect deferred so we can safely erase it from the callback
+	
+	get_tree().get_root().add_child(pong)
+	hide()
 	
 	var host = NetworkedMultiplayerENet.new()
 	host.set_compression_mode(NetworkedMultiplayerENet.COMPRESS_RANGE_CODER)

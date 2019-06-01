@@ -16,6 +16,7 @@ sync func move_doors(dir):
 		$PorteDroite.move_and_slide(-movement)
 	elif dir == -1 && $PorteGauche.translation.x < -0.61:
 		print("closing")
+		$Ground
 		$PorteGauche.move_and_slide(-movement)
 		$PorteDroite.move_and_slide(movement)
 	else:
