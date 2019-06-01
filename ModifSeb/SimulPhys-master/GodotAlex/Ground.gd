@@ -35,7 +35,7 @@ func _process(delta):
 			var data = socket.get_packet().get_string_from_ascii()
 			var data_split = data.split(' ')
 			if (len(data_split) > 1) :
-				if (data_split[0] == "Etage") :
+				if (data_split[0] == "etage") :
 					$Ascenseur.appel(int(data_split[1]))
 					msg = "Appel Etage" + str(data_split[1])
 					socket.put_packet(msg.to_ascii())
@@ -63,7 +63,7 @@ func _process(delta):
 				# Diminution d'une variable
 				if (data_split[0] == "get") :
 					if (data_split[1] == "vitesse_cage") :
-						msg = "vitesse_cage : " + str($"/root/MainScene/Ascenseur".speed)
+						msg = "vitesse_cage = " + str($"/root/MainScene/Ascenseur".speed)
 						socket.put_packet(msg.to_ascii())
 						
 			elif(data == "quit"):
