@@ -1,3 +1,5 @@
+Disclaimer : I wrote UDPclient.py and UDPserver.py and the server part of the godot simulation (host.gd, ground.gd) but not the HUD or the lift model in godot
+
 # SimulPhys
 Physicals process simulator made at Polytech Lille in IMA3 and IMA4
 
