@@ -1,4 +1,4 @@
-import cmd, argparse, socket, time
+import cmd, argparse, socket, time, math
 
 class SimulationShell(cmd.Cmd):
 	intro = 'Welcome to the simulation shell.   Type help or ? to list commands.\n'
@@ -32,12 +32,20 @@ class SimulationShell(cmd.Cmd):
 		self.close()
 		with open(arg) as f:
 			cmds = []
+			dist = 0
+			etage = 0
 			for line in f.read().splitlines():
-				cmds += [line, "wait 3"]
+				delai = 2
+				if 'etage' in line :
+					dist = abs(etage - int(line.split()[1]))
+					etage = int(line.split()[1])
+					delai += 4 + 1.2*dist #on augmente le delai suivant la distance avec l'etage suivant
+				cmds += [line, "wait {}".format(delai)]
 			self.cmdqueue.extend(cmds)
 	def do_wait(self, arg):
 		'Wait a certain amount of time before the next command. Useful for playback'
-		time.sleep(int(arg))
+		#utiliser math.cleil si bugsint
+		time.sleep(math.ceil(float(arg)))
 	def precmd(self, line):
 		line = line.lower()
 		if self.file and 'playback' not in line:
