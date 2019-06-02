@@ -28,4 +28,3 @@ material/0 = null
 
 [node name="validateBeep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-

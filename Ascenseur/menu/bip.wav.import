@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bip.wav-33b8d12576dc007840259b50050df607.sample"
+
+[deps]
+
+source_file="res://menu/bip.wav"
+dest_files=[ "res://.import/bip.wav-33b8d12576dc007840259b50050df607.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

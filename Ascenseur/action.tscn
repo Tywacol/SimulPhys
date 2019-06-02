@@ -70,6 +70,5 @@ text = "1"
 
 [node name="Bip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
-
 [connection signal="pressed" from="ZeroButton" to="." method="_on_ZeroButton_pressed"]
 [connection signal="pressed" from="OneButton" to="." method="_on_OneButton_pressed"]

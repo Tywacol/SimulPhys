@@ -149,6 +149,5 @@ margin_top = 188.0
 margin_right = 109.0
 margin_bottom = 204.0
 text = "IP :"
-
 [connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

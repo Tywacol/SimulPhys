@@ -19,7 +19,7 @@ func _ready():
 
 func _physics_process(delta): 
 	#reset the direction of the caracter
-	#$pause.connect("reprendre",self,"menuOnOff")
+	$pause.connect("reprendre",self,"menuOnOff")
 	if Input.is_action_just_pressed("ui_quit"):
 		menuOnOff()
 	

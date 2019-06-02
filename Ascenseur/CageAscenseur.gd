@@ -4,7 +4,7 @@ extends Spatial
 # var a = 2
 # var b = "textvar
 var movement = "stop"
-var speed = 5
+var speed = global.speed
 export var destination = 0
 export var actuel = 0
 
