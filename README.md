@@ -32,7 +32,7 @@ python3 UDPClient.py --port 1234 --ip 127.0.0.1
 For the view script :
 
 ```bash
-python3 UDPClient.py --port 1234 --ip 127.0.0.1 --export file.csv
+python3 UDPServer.py --port 1234 --ip 127.0.0.1 --export file.csv
 ```
 
 --port -p : the listening destination port.
