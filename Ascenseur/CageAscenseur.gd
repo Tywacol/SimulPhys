@@ -4,7 +4,7 @@ extends Spatial
 # var a = 2
 # var b = "textvar
 var movement = "stop"
-var speed = global.speed
+var speed = elevatorParam.get_elevator_speed()
 export var destination = 0
 export var actuel = 0
 

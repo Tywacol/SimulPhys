@@ -9,7 +9,6 @@ var port_reception
 var ip_destination
 var port_destination
 var socket
-var speed = 5
 
 func send(msg):
 	socket.put_packet(msg.to_ascii())

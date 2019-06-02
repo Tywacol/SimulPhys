@@ -134,4 +134,3 @@ etage = 3
 [node name="Bouton6" parent="MeshInstance" instance=ExtResource( 3 )]
 transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, -0.3, -0.15 )
 etage = 1
-

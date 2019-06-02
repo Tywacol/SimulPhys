@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-
-
-
 func _ready():
 	# Center window on screen
 	var screen_size = OS.get_screen_size(OS.get_current_screen())

@@ -16,4 +16,3 @@ material/0 = null
 enabled = true
 exclude_parent = false
 cast_to = Vector3( 0, 1, 0 )
-
