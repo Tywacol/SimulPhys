@@ -1,4 +1,2 @@
-close
 open
 close
-open

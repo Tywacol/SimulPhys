@@ -37,12 +37,16 @@ if (FILENAME):
 
 # Listen for incoming datagrams
 
+
 while(True):
 
 	bytesAddressPair = UDPServerSocket.recvfrom(bufferSize)
 
 	message = bytesAddressPair[0]
 	address = bytesAddressPair[1]
+
+	if(message.decode() == "Exiting") :
+		break
 
 	clientMsg = "{},{},{}".format(address[0],address[1],message.decode())
 	#clientIP  = "Client IP Address:{}".format(address)
@@ -54,6 +58,8 @@ while(True):
     # Sending a reply to client
 	#UDPServerSocket.sendto(bytesToSend, address)
 
-close(employee_file)
+if (FILENAME) :
+	employee_file.close()
 UDPServerSocket.close()
+print("Fermeture du server..")
 	

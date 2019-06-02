@@ -36,13 +36,25 @@ func _process(delta):
 					if (data_split[1] == "vitesse") :
 						$"/root/MainScene/Ascenseur".speed -= int(data_split[2])
 						msg = "Augmentation de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						
+				# Multiplication d'une variable
+				elif (data_split[0] == "*") :
+					if (data_split[1] == "vitesse") :
+						$"/root/MainScene/Ascenseur".speed *= int(data_split[2])
+						msg = "Multiplication de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						
+				# Division d'une variable
+				elif (data_split[0] == "/") :
+					if (data_split[1] == "vitesse") :
+						$"/root/MainScene/Ascenseur".speed /= int(data_split[2])
+						msg = "Division de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
 				# Set d'une variable
 				elif (data_split[0] == "set") :
 					if (data_split[1] == "vitesse") :
 						$"/root/MainScene/Ascenseur".speed = int(data_split[2])
 						msg = "vitesse_cage mise a : " + str($"/root/MainScene/Ascenseur".speed)
 				
-				# Diminution d'une variable
+				# Get d'une variable
 				elif (data_split[0] == "get") :
 					if (data_split[1] == "vitesse") :
 						msg = "vitesse = " + str($"/root/MainScene/Ascenseur".speed)
@@ -51,14 +63,14 @@ func _process(delta):
 					elif (data_split[1] == "etat") :
 						msg = "etat = " + str($"/root/MainScene/Ascenseur/Portes".etat)
 					elif (data_split[1] == "etage") :
-						msg = "etat = " + str($"/root/MainScene/Ascenseur".actuel)
+						msg = "etage = " + str($"/root/MainScene/Ascenseur".actuel)
 					elif (data_split[1] == "position") :
-						msg = "etat = " + str($"/root/MainScene/Ascenseur".translation)
+						msg = "position = " + str($"/root/MainScene/Ascenseur".translation)
 						
 						
 			elif(data == "quit"):
 				done = true
-				global.send("Exiting the simulation")
+				global.send("Exiting")
 				global.socket.close()
 				get_tree().quit()
 				

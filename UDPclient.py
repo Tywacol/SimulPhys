@@ -45,7 +45,7 @@ class SimulationShell(cmd.Cmd):
 	def do_wait(self, arg):
 		'Wait a certain amount of time before the next command. Useful for playback'
 		#utiliser math.cleil si bugsint
-		time.sleep(math.ceil(float(arg)))
+		time.sleep(math.ceil(float(arg))+1)
 	def precmd(self, line):
 		line = line.lower()
 		if self.file and 'playback' not in line:
