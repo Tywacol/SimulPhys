@@ -8,7 +8,7 @@ onready var etat
 func _ready():
 	etat = "close"
 
-var movement = Vector3(-0.6, 0, 0)
+var movement = Vector3(-elevatorParam.get_door_speed(), 0, 0)
 
 sync func move_doors(dir):
 	if dir == 1 && $PorteGauche.translation.x > -1.8:

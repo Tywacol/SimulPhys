@@ -22,7 +22,7 @@ func bipMenu():
 	
 func vitesseList():
 	for i in range(1,41,2):
-		$elevator_speed_select.add_item("%.3f m/s"% (convert_in_ms*i))
+		$elevator_speed_select.add_item("%.3f ms (%d)"%[(convert_in_ms*i), i] )
 	$elevator_speed_select.select(elevatorParam.get_elevator_speed()/ 2)
 	pass
 	
