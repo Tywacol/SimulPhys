@@ -1,0 +1,138 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://CageAscenseur.gd" type="Script" id=1]
+[ext_resource path="res://Portes.gd" type="Script" id=2]
+[ext_resource path="res://Bouton.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+
+[sub_resource type="CubeMesh" id=2]
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.554688, 0.554688, 0.554688, 1 )
+metallic = 0.4
+roughness = 0.0
+
+[sub_resource type="CubeMesh" id=4]
+size = Vector3( 0.04, 1, 0.5 )
+
+[node name="Ascenseur" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="MurDroite" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( 0.05, 0, 0, 0, 2.5, 0, 0, 0, 1.2, 1.2, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MurDroite"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MurDroite"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MurGauche" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( 0.05, 0, 0, 0, 2.5, 0, 0, 0, 1.2, -1.2, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MurGauche"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MurGauche"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Sol" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( 1.2, 0, 0, 0, 0.05, 0, 0, 0, 1.2, 0, -2.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Sol"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Sol"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Plafond" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( 1.2, 0, 0, 0, 0.05, 0, 0, 0, 1.2, 0, 2.5, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Plafond"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Plafond"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="MurFond" type="StaticBody" parent="."]
+editor/display_folded = true
+transform = Transform( -2.18557e-09, 0, 1.2, 0, 2.5, 0, -0.05, 0, -5.24537e-08, 0, 0, -1.2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MurFond"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MurFond"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="Portes" type="Spatial" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.3 )
+script = ExtResource( 2 )
+
+[node name="PorteGauche" type="KinematicBody" parent="Portes"]
+editor/display_folded = true
+transform = Transform( -2.18557e-09, 0, 0.6, 0, 2.5, 0, -0.05, 0, -2.62268e-08, -0.6, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Portes/PorteGauche"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Portes/PorteGauche"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 4.44089e-16, 0, 1, 0, 0, 0 )
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="PorteDroite" type="KinematicBody" parent="Portes"]
+editor/display_folded = true
+transform = Transform( -2.18557e-09, 0, 0.6, 0, 2.5, 0, -0.05, 0, -2.62268e-08, 0.6, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Portes/PorteDroite"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Portes/PorteDroite"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0 )
+light_color = Color( 0.977858, 1, 0.291444, 1 )
+light_energy = 2.0
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12918, 0, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="Bouton" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, 0.2, 0.15 )
+etage = 4
+
+[node name="Bouton2" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, 0.2, -0.15 )
+etage = 5
+
+[node name="Bouton4" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, -0.05, 0.15 )
+etage = 2
+
+[node name="Bouton5" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, -0.3, 0.15 )
+
+[node name="Bouton3" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, -0.05, -0.15 )
+etage = 3
+
+[node name="Bouton6" parent="MeshInstance" instance=ExtResource( 3 )]
+transform = Transform( -2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0.015, -0.3, -0.15 )
+etage = 1
+

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Bouton.gd" type="Script" id=1]
+[ext_resource path="res://BoutonCollider.tres" type="Shape" id=2]
+
+[sub_resource type="CylinderMesh" id=1]
+top_radius = 0.5
+bottom_radius = 0.5
+height = 0.2
+radial_segments = 32
+
+[node name="Bouton" type="StaticBody"]
+editor/display_folded = true
+collision_layer = 3
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = ExtResource( 2 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 0.306, 0, 0, 0, -2.62268e-08, -0.306, 0, 0.6, -1.33757e-08, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+

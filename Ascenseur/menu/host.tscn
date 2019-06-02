@@ -1,0 +1,153 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://menu/host.gd" type="Script" id=1]
+[ext_resource path="res://menu/Blue_node_full_image_2.jpg" type="Texture" id=2]
+[ext_resource path="res://menu/LemonMilk.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://menu/10676.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = ExtResource( 3 )
+
+[node name="Host" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 123.0
+margin_top = 145.0
+margin_right = 312.0
+margin_bottom = 161.0
+text = "Reception"
+
+[node name="Blue_node_full_image_2" type="Sprite" parent="."]
+position = Vector2( 522.115, 300.775 )
+scale = Vector2( 3.67597, 3.37275 )
+texture = ExtResource( 2 )
+
+[node name="GameName" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -322.0
+margin_top = 27.0
+margin_right = 306.0
+margin_bottom = 123.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "configuration Reseau"
+align = 1
+valign = 1
+
+[node name="HostButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.0
+margin_top = 13.0
+margin_right = 113.0
+margin_bottom = 86.0
+mouse_default_cursor_shape = 7
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.648438, 0.648438, 0.648438, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "SIMULER"
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.0
+margin_top = 111.158
+margin_right = 113.0
+margin_bottom = 184.158
+mouse_default_cursor_shape = 7
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color = Color( 0.648438, 0.648438, 0.648438, 1 )
+custom_colors/font_color_hover = Color( 0, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0, 0, 0, 1 )
+text = "Retour"
+
+[node name="Bip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="port_reception" type="LineEdit" parent="."]
+margin_left = 122.0
+margin_top = 250.0
+margin_right = 351.0
+margin_bottom = 301.0
+rect_pivot_offset = Vector2( 73, 30 )
+text = "4242"
+
+[node name="port_label" type="Label" parent="port_reception"]
+margin_left = -72.0
+margin_top = 16.0
+margin_right = -36.0
+margin_bottom = 32.0
+text = "Port"
+
+[node name="port_destination" type="LineEdit" parent="."]
+margin_left = 672.0
+margin_top = 243.0
+margin_right = 901.0
+margin_bottom = 294.0
+rect_pivot_offset = Vector2( 73, 30 )
+text = "8910"
+
+[node name="ip_destination" type="LineEdit" parent="."]
+margin_left = 673.0
+margin_top = 166.0
+margin_right = 902.0
+margin_bottom = 217.0
+rect_pivot_offset = Vector2( 73, 30 )
+text = "127.0.0.1"
+
+[node name="ip_destination_label" type="Label" parent="ip_destination"]
+margin_left = 2.0
+margin_top = -25.0
+margin_right = 191.0
+margin_bottom = -11.0
+text = "Destination"
+
+[node name="status_fail_destination" type="Label" parent="ip_destination"]
+margin_left = -547.0
+margin_top = 61.0
+margin_right = -395.0
+margin_bottom = 77.0
+
+[node name="ip_reception" type="LineEdit" parent="."]
+margin_left = 120.0
+margin_top = 170.0
+margin_right = 349.0
+margin_bottom = 221.0
+rect_pivot_offset = Vector2( 73, 30 )
+text = "127.0.0.1"
+
+[node name="status_fail_reception" type="Label" parent="ip_reception"]
+margin_left = 555.0
+margin_top = 51.0
+margin_right = 707.0
+margin_bottom = 67.0
+
+[node name="ip_reception_label" type="Label" parent="ip_reception"]
+margin_left = 2.0
+margin_top = -29.0
+margin_right = 191.0
+margin_bottom = -15.0
+text = "Reception"
+
+[node name="ip_label" type="Label" parent="."]
+margin_left = 52.0
+margin_top = 188.0
+margin_right = 109.0
+margin_bottom = 204.0
+text = "IP :"
+[connection signal="pressed" from="HostButton" to="." method="_on_HostButton_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

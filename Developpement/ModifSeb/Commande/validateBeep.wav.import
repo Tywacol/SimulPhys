@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/validateBeep.wav-11b4c962a390ede66f552e95cf598ac1.sample"
+
+[deps]
+
+source_file="res://validateBeep.wav"
+dest_files=[ "res://.import/validateBeep.wav-11b4c962a390ede66f552e95cf598ac1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
