@@ -1,0 +1,11 @@
+plan :
+
+objectif operatoinnel
+
+Solution techniques (interface 3d) : Godot -> montrer qu'on a fait le tour (different critères)
+
+signaux entrants - signaux sortant : monte/descend , bouton appuyé / non appuyé
+
+Communication depuis autre ordi : memoire partage / pipes -> test de faisabilité des solutions techniques
+
+IDee pour l'année prochaine : Assistance parking code : permettre de vérifier le code avant.
