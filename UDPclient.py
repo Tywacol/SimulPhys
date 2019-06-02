@@ -82,3 +82,4 @@ if __name__ == '__main__':
 	# Lancement du shell
 	SimulationShell().cmdloop()
 	sock.close()
+	print("Fermeture de la commande..")
