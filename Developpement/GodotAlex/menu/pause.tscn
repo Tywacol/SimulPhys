@@ -3,7 +3,7 @@
 [ext_resource path="res://menu/pause.gd" type="Script" id=1]
 [ext_resource path="res://menu/index.png" type="Texture" id=2]
 [ext_resource path="res://menu/LemonMilk.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://menu/10676.wav" type="AudioStream" id=4]
+[ext_resource path="res://menu/bip.wav" type="AudioStream" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -70,10 +70,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -114.0
-margin_top = -37.0
-margin_right = 113.0
-margin_bottom = 36.0
+margin_left = -115.0
+margin_top = -66.0
+margin_right = 112.0
+margin_bottom = 7.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -91,7 +91,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Visibility" ]
 
-[node name="menuButton" type="Button" parent="." index="3"]
+[node name="option" type="Button" parent="." index="3"]
 
 modulate = Color( 0.714844, 0.714844, 0.714844, 1 )
 self_modulate = Color( 0.839844, 0.839844, 0.839844, 1 )
@@ -100,9 +100,38 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -114.0
-margin_top = 57.0
+margin_top = 18.0
 margin_right = 113.0
-margin_bottom = 130.0
+margin_bottom = 91.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 7
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/font = SubResource( 2 )
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Option"
+flat = false
+align = 1
+_sections_unfolded = [ "Mouse", "Visibility" ]
+
+[node name="menuButton" type="Button" parent="." index="4"]
+
+modulate = Color( 0.714844, 0.714844, 0.714844, 1 )
+self_modulate = Color( 0.839844, 0.839844, 0.839844, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -114.0
+margin_top = 102.0
+margin_right = 113.0
+margin_bottom = 175.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -120,7 +149,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Visibility" ]
 
-[node name="leaveButton" type="Button" parent="." index="4"]
+[node name="leaveButton" type="Button" parent="." index="5"]
 
 modulate = Color( 0.714844, 0.714844, 0.714844, 1 )
 self_modulate = Color( 0.839844, 0.839844, 0.839844, 1 )
@@ -129,9 +158,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -114.0
-margin_top = 152.0
+margin_top = 186.0
 margin_right = 113.0
-margin_bottom = 225.0
+margin_bottom = 259.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -149,7 +178,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "Mouse", "Visibility" ]
 
-[node name="Bip" type="AudioStreamPlayer" parent="." index="5"]
+[node name="Bip" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = ExtResource( 4 )
 volume_db = 0.0

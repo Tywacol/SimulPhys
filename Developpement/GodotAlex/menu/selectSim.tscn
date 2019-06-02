@@ -3,8 +3,9 @@
 [ext_resource path="res://menu/selectSim.gd" type="Script" id=1]
 [ext_resource path="res://menu/Blue_node_full_image_2.jpg" type="Texture" id=2]
 [ext_resource path="res://menu/LemonMilk.otf" type="DynamicFontData" id=3]
-[ext_resource path="res://menu/10676.wav" type="AudioStream" id=4]
+[ext_resource path="res://menu/bip.wav" type="AudioStream" id=4]
 [ext_resource path="res://menu/validateBeep.wav" type="AudioStream" id=5]
+
 
 [sub_resource type="DynamicFont" id=1]
 
