@@ -55,4 +55,5 @@ while(True):
 	#UDPServerSocket.sendto(bytesToSend, address)
 
 close(employee_file)
+UDPServerSocket.close()
 	

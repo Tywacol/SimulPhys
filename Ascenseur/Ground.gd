@@ -64,7 +64,6 @@ func _process(delta):
 				
 			elif(data == "restart"):
 				global.send("restarting the simulation")
-				global.socket.close()
 				get_tree().change_scene("res://Ground.tscn")
 				
 			elif(data == "open") :
