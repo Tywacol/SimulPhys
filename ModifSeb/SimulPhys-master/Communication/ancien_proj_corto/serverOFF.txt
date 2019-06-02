@@ -1,1 +1,0 @@
-Unable to connect to server with parameters (localhost,666). Server possibly off or arguments are invalids.
