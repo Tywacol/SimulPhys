@@ -28,9 +28,7 @@ python3 UDPClient.py --port 1234 --ip 127.0.0.1
 
 --ip -i : the destination ip adress 
 
-```
 For the view script :
-
 ```bash
 python3 UDPServer.py --port 1234 --ip 127.0.0.1 --export file.csv
 ```
