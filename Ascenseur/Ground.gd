@@ -28,36 +28,36 @@ func _process(delta):
 				# Augmentation d'une variable
 				elif (data_split[0] == "+") :
 					if (data_split[1] == "vitesse") :
-						$"/root/MainScene/Ascenseur".speed += int(data_split[2])
-						msg = "Augmentation de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() + int(data_split[2]))
+						msg = "Augmentation de vitesse a : " + str(elevatorParam.get_elevator_speed())
 				
 				# Diminution d'une variable
 				elif (data_split[0] == "-") :
 					if (data_split[1] == "vitesse") :
-						$"/root/MainScene/Ascenseur".speed -= int(data_split[2])
-						msg = "Augmentation de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() - int(data_split[2]))
+						msg = "Diminution de vitesse a : " + str(elevatorParam.get_elevator_speed())
 						
 				# Multiplication d'une variable
 				elif (data_split[0] == "*") :
 					if (data_split[1] == "vitesse") :
-						$"/root/MainScene/Ascenseur".speed *= int(data_split[2])
-						msg = "Multiplication de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() * int(data_split[2]))
+						msg = "Multiplication de vitesse a : " + str(elevatorParam.get_elevator_speed())
 						
 				# Division d'une variable
 				elif (data_split[0] == "/") :
 					if (data_split[1] == "vitesse") :
-						$"/root/MainScene/Ascenseur".speed /= int(data_split[2])
-						msg = "Division de vitesse a : " + str($"/root/MainScene/Ascenseur".speed)
+						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() / int(data_split[2]))
+						msg = "Division de vitesse a : " + str(elevatorParam.get_elevator_speed())
 				# Set d'une variable
 				elif (data_split[0] == "set") :
 					if (data_split[1] == "vitesse") :
-						$"/root/MainScene/Ascenseur".speed = int(data_split[2])
-						msg = "vitesse_cage mise a : " + str($"/root/MainScene/Ascenseur".speed)
+						elevatorParam.set_elevator_speed(int(data_split[2]))
+						msg = "vitesse_cage mise a : " + str(elevatorParam.get_elevator_speed())
 				
 				# Get d'une variable
 				elif (data_split[0] == "get") :
 					if (data_split[1] == "vitesse") :
-						msg = "vitesse = " + str($"/root/MainScene/Ascenseur".speed)
+						msg = "vitesse = " + str(elevatorParam.get_elevator_speed())
 					elif (data_split[1] == "destination") :
 						msg = "destination = " + str($"/root/MainScene/Ascenseur".destination)
 					elif (data_split[1] == "etat") :
