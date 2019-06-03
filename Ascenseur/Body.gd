@@ -15,11 +15,12 @@ var menu = false
 
 func _ready():
 	$validateBeep.play()
+	$pause.connect("reprendre",self,"menuOnOff")
 	pass
 
 func _physics_process(delta): 
 	#reset the direction of the caracter
-	$pause.connect("reprendre",self,"menuOnOff")
+
 	if Input.is_action_just_pressed("ui_quit"):
 		menuOnOff()
 	
