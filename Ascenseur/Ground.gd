@@ -52,6 +52,7 @@ func _process(delta):
 				elif (data_split[0] == "set") :
 					if (data_split[1] == "vitesse") :
 						elevatorParam.set_elevator_speed(int(data_split[2]))
+						#door speed?
 						msg = "vitesse_cage mise a : " + str(elevatorParam.get_elevator_speed())
 				
 				# Get d'une variable
@@ -64,8 +65,8 @@ func _process(delta):
 						msg = "etat = " + str($"/root/MainScene/Ascenseur/Portes".etat)
 					elif (data_split[1] == "etage") :
 						msg = "etage = " + str($"/root/MainScene/Ascenseur".actuel)
-					elif (data_split[1] == "position") :
-						msg = "position = " + str($"/root/MainScene/Ascenseur".translation)
+					elif (data_split[1] == "hauteur") :
+						msg = "hauteur = " + str($"/root/MainScene/Ascenseur".translation.y)
 						
 						
 			elif(data == "quit"):

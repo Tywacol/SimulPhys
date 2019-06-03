@@ -70,3 +70,4 @@ text = "Quitter"
 
 [node name="Bip" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+

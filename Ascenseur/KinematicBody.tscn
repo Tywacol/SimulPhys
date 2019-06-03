@@ -4,3 +4,4 @@
 
 [node name="KinematicBody" type="KinematicBody"]
 script = ExtResource( 1 )
+
