@@ -4,7 +4,6 @@ extends Spatial
 # var a = 2
 # var b = "textvar
 var movement = "stop"
-var speed = elevatorParam.get_elevator_speed()
 export var destination = 0
 export var actuel = 0
 
@@ -15,9 +14,9 @@ func _ready():
 func _process(delta):
 	if $Portes.etat == "close":
 		if movement == "haut":
-			translate(Vector3(0, speed, 0)*delta)
+			translate(Vector3(0,  elevatorParam.get_elevator_speed(), 0)*delta)
 		elif movement == "bas":
-			translate(Vector3(0, -speed, 0)*delta)
+			translate(Vector3(0, - elevatorParam.get_elevator_speed(), 0)*delta)
 
 
 sync func update(dir, etage):
