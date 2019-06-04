@@ -21,6 +21,10 @@ func _ready():
 var cnt = 0
 func _process(delta):
 	
+	if(elevatorParam.simulation_is_busy()) : 
+		global.send(str($"/root/MainScene/Ascenseur".translation.y))
+		return
+	
 	cnt += 1
 	data = global.recv()
 	if (data != null):
@@ -80,7 +84,7 @@ func _process(delta):
 					elif (data_split[1] == "hauteur") :
 						msg = "hauteur = " + str($"/root/MainScene/Ascenseur".translation.y)
 					elif (data_split[1] == "queue") :
-						msg = "hauteur = " + str(global.queue)
+						msg = "hauteur = " + str($"/root/MainScene/Ascenseur".translation.y)
 					
 	
 			elif(data_split[0] == "quit"):
@@ -112,5 +116,7 @@ func _process(delta):
 		global.send(msg)
 	global.send("Queue : " +str(global.queue))
 	
+	#Notes : 
+	#Ajouter les priorites differentes pour les actions incompatibles et les setters/ getters
 
 	

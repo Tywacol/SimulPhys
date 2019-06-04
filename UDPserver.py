@@ -1,5 +1,5 @@
 
-import socket, argparse, csv, datetime
+import socket, argparse, csv, datetime, time
 
 parser = argparse.ArgumentParser(description='Process some integers.')
 parser.add_argument('-i','--ip', dest='UDP_IP', default="127.0.0.1",
@@ -17,6 +17,8 @@ FILENAME = args.FILENAME
 
 print("UDP listening IP:", UDP_IP)
 print("UDP listening port:", UDP_PORT)
+
+START_TIME = time.time()
 
 bufferSize = 1024
 
@@ -53,7 +55,7 @@ while(True):
     
 	print(clientMsg)
 	if (FILENAME):
-		employee_writer.writerow([address[0],address[1],message.decode(),str(datetime.datetime.now().time())])
+		employee_writer.writerow([address[0],address[1],str(time.time() - START_TIME),str(datetime.datetime.now().time()),message.decode()])
 
     # Sending a reply to client
 	#UDPServerSocket.sendto(bytesToSend, address)
