@@ -105,7 +105,7 @@ func _process(delta):
 
 			
 		global.send(msg)
-	global.send("Queue : " +str(global.queue))
+	#global.send("Queue : " +str(global.queue))
 	
 	#Notes : 
 	#Ajouter les priorites differentes pour les actions incompatibles et les setters/ getters
