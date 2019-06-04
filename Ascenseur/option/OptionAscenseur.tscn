@@ -47,10 +47,10 @@ align = 1
 valign = 1
 
 [node name="door_speed_select" type="OptionButton" parent="."]
-margin_left = 160.0
-margin_top = 210.0
-margin_right = 310.0
-margin_bottom = 240.0
+margin_left = 321.0
+margin_top = 244.0
+margin_right = 490.0
+margin_bottom = 286.0
 
 [node name="doorSpeedLabel" type="Label" parent="door_speed_select"]
 margin_left = -143.523
@@ -61,21 +61,22 @@ text = "Vitesse des portes :"
 align = 1
 valign = 1
 
-[node name="elevator_speed_select" type="OptionButton" parent="."]
-margin_left = 160.0
-margin_top = 150.0
-margin_right = 310.0
-margin_bottom = 180.0
+[node name="Bip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 
-[node name="elevatorSpeedLabel" type="Label" parent="elevator_speed_select"]
-margin_left = -143.523
-margin_top = -13.6755
-margin_right = -3.52301
-margin_bottom = 46.3245
+[node name="elevatorSpeedValue" type="LineEdit" parent="."]
+margin_left = 319.0
+margin_top = 155.0
+margin_right = 491.0
+margin_bottom = 197.0
+rect_pivot_offset = Vector2( 73, 30 )
+
+[node name="elevatorSpeedLabel2" type="Label" parent="elevatorSpeedValue"]
+margin_left = -145.975
+margin_top = -5.50719
+margin_right = -5.97484
+margin_bottom = 54.4928
 text = "Vitesse de la cage
  d'ascenseur :"
 align = 1
 valign = 1
-
-[node name="Bip" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 4 )

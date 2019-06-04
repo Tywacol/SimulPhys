@@ -4,6 +4,9 @@ extends Spatial
 # var a = 2
 # var b = "textvar"
 
+var a = []
+
+
 var done
 var msg
 
@@ -16,7 +19,6 @@ func _ready():
 	
 func _process(delta):
 	if (done != true):
-		#socket.put_packet("spam".to_ascii())
 		if(global.socket.get_available_packet_count() > 0):
 			var data = global.socket.get_packet().get_string_from_ascii()
 			var data_split = data.split(' ')
@@ -24,25 +26,25 @@ func _process(delta):
 				if (data_split[0] == "etage") :
 					$Ascenseur.appel(int(data_split[1]))
 					msg = "Appel Etage" + str(data_split[1])
-					
+
 				# Augmentation d'une variable
 				elif (data_split[0] == "+") :
 					if (data_split[1] == "vitesse") :
 						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() + int(data_split[2]))
 						msg = "Augmentation de vitesse a : " + str(elevatorParam.get_elevator_speed())
-				
+
 				# Diminution d'une variable
 				elif (data_split[0] == "-") :
 					if (data_split[1] == "vitesse") :
 						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() - int(data_split[2]))
 						msg = "Diminution de vitesse a : " + str(elevatorParam.get_elevator_speed())
-						
+
 				# Multiplication d'une variable
 				elif (data_split[0] == "*") :
 					if (data_split[1] == "vitesse") :
 						elevatorParam.set_elevator_speed(elevatorParam.get_elevator_speed() * int(data_split[2]))
 						msg = "Multiplication de vitesse a : " + str(elevatorParam.get_elevator_speed())
-						
+
 				# Division d'une variable
 				elif (data_split[0] == "/") :
 					if (data_split[1] == "vitesse") :
@@ -54,7 +56,7 @@ func _process(delta):
 						elevatorParam.set_elevator_speed(int(data_split[2]))
 						#door speed?
 						msg = "vitesse_cage mise a : " + str(elevatorParam.get_elevator_speed())
-				
+
 				# Get d'une variable
 				elif (data_split[0] == "get") :
 					if (data_split[1] == "vitesse") :
@@ -67,18 +69,17 @@ func _process(delta):
 						msg = "etage = " + str($"/root/MainScene/Ascenseur".actuel)
 					elif (data_split[1] == "hauteur") :
 						msg = "hauteur = " + str($"/root/MainScene/Ascenseur".translation.y)
-						
-						
+
 			elif(data == "quit"):
 				done = true
 				global.send("Exiting")
 				global.socket.close()
 				get_tree().quit()
-				
+
 			elif(data == "restart"):
 				global.send("restarting the simulation")
 				get_tree().change_scene("res://Ground.tscn")
-				
+
 			elif(data == "open") :
 				msg = "Ouverture des portes"
 				$Ascenseur.get_node("Portes").open()
@@ -87,10 +88,11 @@ func _process(delta):
 			elif(data == "close") :
 				msg = "Fermeture des portes"
 				$Ascenseur.get_node("Portes").close()
-				
+
 			else:
 				print("Data received: " + data)
 				msg = "Commande inconnue : " + data 
+
 			global.send(msg)
 	
 
