@@ -109,5 +109,7 @@ func _process(delta):
 	
 	#Notes : 
 	#Ajouter les priorites differentes pour les actions incompatibles et les setters/ getters
+	# export param + valeurs variables
+	# import variables
 
 	
