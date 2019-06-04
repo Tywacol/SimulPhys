@@ -18,21 +18,12 @@ func _ready():
 	set_process_input(true)
 	done = false
 	
-var cnt = 0
 func _process(delta):
-	
-	if(elevatorParam.simulation_is_busy()) : 
-		global.send(str($"/root/MainScene/Ascenseur".translation.y))
-		return
-	
-	cnt += 1
 	data = global.recv()
 	if (data != null):
-		print("frame : "+str(cnt)) 
 		print("data received : "+str(data))
 		global.queue.append(data.split(' '))
 	if(len(global.queue) > 0) :
-		print("frame : "+str(cnt)) 
 		print("not elevatorParam.simulation_is_busy()" + str(not elevatorParam.simulation_is_busy()))
 		if (not elevatorParam.simulation_is_busy()) :
 			var data_split = global.queue.pop_front()
