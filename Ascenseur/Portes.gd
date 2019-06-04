@@ -12,6 +12,7 @@ var movement = Vector3(-elevatorParam.get_door_speed(), 0, 0)
 
 sync func move_doors(dir):
 	if dir == 1 && $PorteGauche.translation.x > -1.8:
+		print("opening")
 		$PorteGauche.move_and_slide(movement)
 		$PorteDroite.move_and_slide(-movement)
 	elif dir == -1 && $PorteGauche.translation.x < -0.61:
@@ -28,15 +29,17 @@ sync func move_doors(dir):
 			print("Doors opened")
 
 sync func _physics_process(delta):
+	elevatorParam.set_movement_doors(etat == "opening" or etat == "closing")
 	if etat == "opening":
 		move_doors(1)
 	elif etat == "closing":
+		
 		move_doors(-1)
 
 
 sync func open():
 	print("open")
-	print("path open portes  : "+get_path())
+	#print("path open portes  : "+get_path())
 	if etat == "close":
 		print("ouverture")
 		etat = "opening"

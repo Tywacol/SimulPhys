@@ -12,6 +12,7 @@ func _ready():
 	pass
 
 func _process(delta):
+	elevatorParam.set_movement_lift(movement != "stop")
 	if $Portes.etat == "close":
 		if movement == "haut":
 			translate(Vector3(0,  elevatorParam.get_elevator_speed(), 0)*delta)
@@ -45,7 +46,7 @@ sync func stop():
 	open()
 
 sync func open():
-	print("path open cageascencseur  : "+get_path())
+	#print("path open cageascencseur  : "+get_path())
 	$Portes.open()
 
 sync func close():

@@ -31,17 +31,7 @@ class SimulationShell(cmd.Cmd):
 		'Playback commands from a file:  PLAYBACK script.cmd'
 		self.close()
 		with open(arg) as f:
-			cmds = []
-			dist = 0
-			etage = 0
-			for line in f.read().splitlines():
-				delai = 2
-				if 'etage' in line :
-					dist = abs(etage - int(line.split()[1]))
-					etage = int(line.split()[1])
-					delai += 4 + 1.2*dist #on augmente le delai suivant la distance avec l'etage suivant
-				cmds += [line, "wait {}".format(delai)]
-			self.cmdqueue.extend(cmds)
+			self.cmdqueue.extend(f.read().splitlines())
 	def do_wait(self, arg):
 		'Wait a certain amount of time before the next command. Useful for playback'
 		#utiliser math.cleil si bugsint

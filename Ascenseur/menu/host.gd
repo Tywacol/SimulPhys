@@ -15,12 +15,11 @@ func UDPserver(ip_destination="127.0.0.1", port_destination=8910,ip_reception="1
 	if(global.socket.listen(port_reception,ip_reception) != OK):
 		print("An error occurred listening on port 4242")
 	else:
-		print("Listening on port 4242 on localhost")
-		
+		print("Listening on port "+str(port_reception) + " on "+str(ip_reception))		
 	if(global.socket.set_dest_address(ip_destination,port_destination) != OK):
 		print("An error setting destination_adresse")
 	else:
-		print("dest_adress on port 4242 on localhost")
+		print("Sending on port "+str(port_reception) + " on "+str(ip_reception))
 
 
 func _on_HostButton_pressed():
