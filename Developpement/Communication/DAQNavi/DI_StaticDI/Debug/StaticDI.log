@@ -1,0 +1,3 @@
+﻿  StaticDI.cpp
+cl : ligne de commande warning D9035: l'option 'Gm' est déconseillée et sera supprimée dans une version ultérieure
+  StaticDI.vcxproj -> C:\Advantech\DAQNavi\Examples\C++_Console\DI_StaticDI\..\bin\debug\DI_StaticDI.exe
