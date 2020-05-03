@@ -27,7 +27,7 @@
 from SimPyLC import *
 from pyModbusTCP.client import ModbusClient
 
-class BlinkingLight (Module):
+class plcSimModbus (Module):
     SERVER_HOST = "localhost"
     SERVER_PORT = 502
     c = ModbusClient()

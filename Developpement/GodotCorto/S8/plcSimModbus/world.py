@@ -32,7 +32,7 @@ import sys
 sys.path.append (os.path.abspath ('../..')) # If you want to store your simulations somewhere else, put SimPyLC in your PYTHONPATH environment variable
 
 from SimPyLC import *
-from blinkingLight import *
+from plcSimModbus import *
 from timing import *
         
-World (BlinkingLight (), Timing ())
+World (plcSimModbus (), Timing ())
