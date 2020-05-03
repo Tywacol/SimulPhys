@@ -103,14 +103,28 @@ class plcSimModbus (Module):
         self.capteur_7.mark(True, self.capt_register & 1 << 7, False)
 
         #Logique actionneurs
+
+        #normal
+        #self.actionneur_0.mark(True, self.act_register & 1 << 0, False)
+        #self.actionneur_1.mark(True, self.act_register & 1 << 1, False)
+
         self.actionneur_0.mark(True, self.act_register & 1 << 0, False)
         self.actionneur_1.mark(True, self.act_register & 1 << 1, False)
-        self.actionneur_2.mark(True, self.act_register & 1 << 2, False)
+
+        self.actionneur_2.mark(True, self.capteur_2, False)
+
+        #self.act_register.set(evaluate((self.actionneur_2 << 2) & (self.actionneur_1 << 1), self.actionneur_2)#, self.act_register -)
+        self.act_register.set(6, self.actionneur_2, 0)
+
         self.actionneur_3.mark(True, self.act_register & 1 << 3, False)
         self.actionneur_4.mark(True, self.act_register & 1 << 4, False)
         self.actionneur_5.mark(True, self.act_register & 1 << 5, False)
         self.actionneur_6.mark(True, self.act_register & 1 << 6, False)
         self.actionneur_7.mark(True, self.act_register & 1 << 7, False)
+
+        self.c.write_single_register(1, evaluate(self.act_register))
+
+
 
         
         
