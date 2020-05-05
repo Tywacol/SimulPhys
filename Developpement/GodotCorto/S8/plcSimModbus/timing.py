@@ -39,26 +39,26 @@ class Timing (Chart):
 
         # Suivi evolution des capteurs
         self.channel (world.plcSimModbus.capt_register, white, 0, 100, 75)
-        self.channel (world.plcSimModbus.capteur_0, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_1, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_2, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_3, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_4, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_5, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_6, lime, 0, 1, 50)
-        self.channel (world.plcSimModbus.capteur_7, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_fermeture_portes, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_etage_0_bas, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_etage_0_haut, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_etage_1_bas, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_etage_1_haut, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_appel_0, lime, 0, 1, 50)
+        self.channel (world.plcSimModbus.capt_appel_1, lime, 0, 1, 50)
+        #self.channel (world.plcSimModbus.capteur_7, lime, 0, 1, 50)
 
 
         # Suivi evolution des actionneuurs
         self.channel (world.plcSimModbus.act_register, white, 0, 100, 75)
-        self.channel (world.plcSimModbus.actionneur_0, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_1, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_2, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_3, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_4, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_5, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_6, red, 0, 1, 50)
-        self.channel (world.plcSimModbus.actionneur_7, red, 0, 1, 50)
+        self.channel (world.plcSimModbus.act_portes, red, 0, 1, 50)
+        self.channel (world.plcSimModbus.act_mouvement, red, 0, 1, 50)
+        self.channel (world.plcSimModbus.act_direction_mouvement, red, 0, 1, 50)
+        #self.channel (world.plcSimModbus.actionneur_3, red, 0, 1, 50)
+        #self.channel (world.plcSimModbus.actionneur_4, red, 0, 1, 50)
+        #self.channel (world.plcSimModbus.actionneur_5, red, 0, 1, 50)
+        #self.channel (world.plcSimModbus.actionneur_6, red, 0, 1, 50)
+        #self.channel (world.plcSimModbus.actionneur_7, red, 0, 1, 50)
 
 
 
