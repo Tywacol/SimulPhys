@@ -5,7 +5,7 @@ Wiki project page : https://projets-ima.plil.fr/mediawiki/index.php/IMA3/IMA4_20
 
 Collaborators : Quentin Normand, Sebastien Dardenne, Clement Hue, Alex Lagneau, Corto Callerisa
 
-![](https://github.com/Tywacol/SimulPhys/blob/master/img/simulphys.JPG?raw=true)
+![](https://github.com/Tywacol/SimulPhys/blob/master/S6_S7/img/simulphys.JPG?raw=true)
 
 
 
