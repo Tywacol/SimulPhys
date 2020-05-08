@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Hierarchie_objets/GlobalObject.gd" type="Script" id=1]
+[ext_resource path="res://Library/Boitier.gd" type="Script" id=2]
+[ext_resource path="res://Library/Bouton.tscn" type="PackedScene" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.391836, 0.589477, 0.221094 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.730469, 0.730469, 0.730469, 1 )
+roughness = 0.0
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+
+[node name="Boitier" type="Spatial"]
+script = ExtResource( 1 )
+linked_script = ExtResource( 2 )
+
+[node name="Rect" type="StaticBody" parent="."]
+transform = Transform( 0.742655, 0, 0, 0, 0.792127, 0, 0, 0, 0.424516, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Rect"]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Rect"]
+transform = Transform( 0.394874, 0, 0, 0, 0.595115, 0, 0, 0, 0.225168, 0, 0, 0 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="Bouton" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0983472 )
+

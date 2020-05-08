@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Library/KinematicBody.gd" type="Script" id=1]
+[ext_resource path="res://Library/CageAscenseur.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Library/Boitier.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Library/CapteurPresence.tscn" type="PackedScene" id=4]
+
+[sub_resource type="BoxShape" id=1]
+
+[node name="CreatingArea" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+editor/display_folded = true
+input_ray_pickable = false
+collision_layer = 0
+collision_mask = 0
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+shape = SubResource( 1 )
+
+[node name="Camera" type="Camera" parent="KinematicBody"]
+
+[node name="Ascenseur" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.00031, -5 )
+
+[node name="Boitier" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, -5, -5 )
+
+[node name="Boitier2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 9.00031, -4 )
+
+[node name="CapteurPresence" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 2.00031, -4 )
+
+[node name="CapteurPresence3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 7.00031, -4 )
+
+[node name="CapteurPresence4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 11.0003, -4 )
+
+[node name="CapteurPresence2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -2, 6.20031, -4 )
+
